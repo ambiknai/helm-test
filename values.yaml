@@ -49,3 +49,4 @@ resource:
 kubeDriver: /usr/libexec/kubernetes
 
 bucketAccessPolicy: false
+openshift-version: 1.21
