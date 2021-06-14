@@ -1,0 +1,51 @@
+replicaCount: 1
+maxUnavailableNodeCount: 1
+
+# Change license to true to indicate have read and agreed to license agreement
+# https://www.apache.org/licenses/LICENSE-2.0
+license: false
+
+image:
+  providerImage:
+    # This image is required only for IBM Cloud clusters
+    ibmContainerRegistry: icr.io/ibm/ibmcloud-provider-storage:1.0.7
+  pluginImage:
+    ibmContainerRegistry: icr.io/ibm/ibmcloud-object-storage-plugin@sha256:d49794f32a3d157ad325c4be169a4301837563d239ecdeb485cfffa83539b45b
+    publicRegistry: ibmcom/ibmcloud-object-storage-plugin@sha256:f04d47b01f0268b3a044169dd487c4c23bcc846c62d71803ae4c6adcf1512763
+  driverImage:
+    ibmContainerRegistry: icr.io/ibm/ibmcloud-object-storage-driver@sha256:c374e240bb7e0675173298457f93889fc789379969e62878b7fd5363961ea09e
+    publicRegistry: ibmcom/ibmcloud-object-storage-driver@sha256:a8408ad21e8c651e25762e84aa42cf1422785649c470ee10ef519ba147331d6f
+  pullPolicy: Always
+
+# IAM endpoint url
+iamEndpoint: https://iam.cloud.ibm.com
+iamEndpointVPC: https://private.iam.cloud.ibm.com
+
+# COS endpoints and COS storageClass configuration
+cos:
+  endpoint: https://<Endpoint URL>
+  storageClass: <StorageClass>
+
+provider: ICP
+
+# Container platform K8S vs OpenShift (OpenShift)
+platform: k8s
+
+secondaryValueFile: ibm/values.yaml
+useCustomPSP: false
+
+arch: amd64
+# Datacenter name where cluster is deployed (required only for IKS)
+dcname: ""
+region: ""
+
+# Worker node's OS
+workerOS: debian
+
+resource:
+  memory: 128Mi
+  cpu: 200m
+
+kubeDriver: /usr/libexec/kubernetes
+
+bucketAccessPolicy: false
