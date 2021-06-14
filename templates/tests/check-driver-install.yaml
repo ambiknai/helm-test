@@ -52,4 +52,4 @@ spec:
   volumes:
     - name: kube-driver
       hostPath:
-         path: /etc/kubernetes
+         path: {{ .Values.kubeDriver }}
