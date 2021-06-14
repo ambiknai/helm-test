@@ -52,12 +52,4 @@ spec:
   volumes:
     - name: kube-driver
       hostPath:
-         {{- if contains "ICP" (.Values.provider | quote | upper) }}
-         {{- if contains "OPENSHIFT" (.Values.platform | quote | upper) }}
          path: /etc/kubernetes
-         {{- else }}
-         path: /usr/libexec/kubernetes
-         {{- end }}
-         {{- else }}
-         path: /usr/libexec/kubernetes
-         {{- end }}
